@@ -1,0 +1,118 @@
+*, ::after, ::before {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.preload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    z-index: 10;
+}
+
+.preload.removed {
+    overflow: hidden;
+    z-index: -1;
+}
+
+
+
+.container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, .7);
+}
+
+.container .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #fff;
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 8px;
+    color: blueviolet;
+}
+
+.container .video {
+    width: 100%;
+    height: 100%;
+}
+
+.container .btns {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    display: flex;
+    align-items: center;
+    
+}
+
+.container .btns::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    width: 50%;
+    height: 100%;
+    background-color: blueviolet;
+    transition: .3s;
+}
+
+.container.move .btns::after {
+    left: 50%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.container .btns button {
+    padding: 5px 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: blueviolet;
+    cursor: pointer;
+}
+
+.container .btns .play {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.container .btns .pause {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
